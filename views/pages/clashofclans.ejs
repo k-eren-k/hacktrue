@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css"/>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/d2fVzM6/c01f23a7-a98e-462c-af8e-8663e026304d-removebg-preview.png">
+    <title>CLASH OF CLANS ELMAS HİLESİ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+
+* {
+    font-family: "Poppins", system-ui;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://wallpapercat.com/w/full/c/0/5/283375-3840x2160-desktop-4k-clash-of-clans-background.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.hack-div {
+    width: 55%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.151);
+    border: 3px solid rgba(17, 17, 17, 0.192);
+    backdrop-filter: blur(20px);
+    display: flex;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile-friendly settings */
+@media (max-width: 768px) {
+    .hack-div {
+        width: 85%; /* Make the container width more suitable for mobile */
+        padding: 15px;
+    }
+    
+    .username, .platform-select {
+        width: 100%;
+        height: 40px; /* Decrease the height slightly */
+        font-size: 14px; /* Adjust font size for mobile */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .next {
+        height: 40px; /* Make button size smaller */
+        width: 80px;
+        font-size: 14px;
+    }
+
+    .loading-message {
+        font-size: 14px; /* Make loading text smaller */
+    }
+
+    .amount-number {
+        font-size: 16px; /* Slightly smaller text for the animated amount */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px; /* Add padding around the body for very small screens */
+    }
+
+    .hack-div {
+        width: 95%; /* Further reduce container width */
+        padding: 10px;
+    }
+
+    .username, .platform-select {
+        font-size: 12px; /* Adjust font size for very small screens */
+    }
+
+    .next {
+        font-size: 12px; /* Further adjust button font size */
+        width: 75px;
+        height: 35px;
+    }
+
+    .loading-message {
+        font-size: 12px; /* Further adjust loading message font size */
+    }
+
+    .amount-number {
+        font-size: 14px; /* Adjust the animated amount text */
+    }
+}
+
+.user-info, .amount, .loading, .platform {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.active {
+    display: flex !important;
+    opacity: 1;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.username, .platform-select {
+    width: 100%;
+    height: 45px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    border: 1px solid rgba(0, 0, 0, 0.322);
+    background-color: #10131762;
+    color: rgba(255, 255, 255, 0.63);
+    padding-left: 20px;
+    padding-right: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.username:focus, .platform-select:focus {
+    border: none;
+    outline: 2px solid #4d2569be;
+}
+
+.service-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.next {
+    height: 45px;
+    margin-left: auto;
+    width: 90px;
+    color: #65D0F3;
+    font-size: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.322);
+    background-color: #10131762;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7.5px;
+    cursor: pointer;
+}
+
+.loading-message {
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.loading {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(17, 17, 17, 0.192);
+    backdrop-filter: blur(10px);
+}
+
+.spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-left: 8px solid #0e9fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+.checkmark {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    display: none;
+}
+
+.amount-number {
+    color: #65D0F3;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+  </style>
+</head>
+<body>
+
+    <div class="hack-div">
+        <div class="user-info active">
+            <input class="username" id="username" type="text" placeholder="username#0000">
+            <div class="service-div">
+                <div class="next" id="toPlatform">Next</div>
+            </div>
+        </div>
+        <div class="platform">
+            <select class="platform-select" id="platform">
+                <option value="MOBİLE">MOBİL</option>
+            </select>
+            <div class="service-div">
+                <div class="next" id="toAmount">Next</div>
+            </div>
+        </div>
+        <div class="amount">
+            <input class="username" id="amountInput" type="text" placeholder="ELMAS Max: 9500">
+            <div class="service-div">
+                <div class="next" id="toLoading">Next</div>
+            </div>
+        </div>
+        <div class="loading">
+            <div class="spinner"></div>
+            <div class="checkmark">&#10003;</div>
+            <div class="loading-message">Dataya bağlanılıyor...</div>
+            <div class="loading-message">Kullanıcı bulunuyor...</div>
+            <div class="loading-message">Kullanıcı <span id="found-username"></span> bulundu...</div>
+            <div class="loading-message">Bakiye üretiliyor...</div>
+            <div class="amount-number" id="animated-amount"></div>
+            <div class="loading-message">İşlem başarılı!</div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 0;
+        let userAmount = 0;
+        const loadingMessages = [
+            "Dataya bağlanılıyor...",
+            "Kullanıcı bulunuyor...",
+            "",
+            "Bakiye üretiliyor...",
+            "İşlem başarılı!"
+        ];
+
+        const showLoading = () => {
+            document.querySelector('.loading').classList.add('active');
+            showMessage();
+        };
+
+        const showMessage = () => {
+            const username = document.getElementById('username').value;
+            if (currentStep < loadingMessages.length) {
+                const messageElements = document.querySelectorAll('.loading-message');
+                messageElements.forEach(el => el.style.display = 'none');
+                
+                // Show current message
+                if (currentStep === 2) {
+                    document.getElementById('found-username').textContent = username;
+                    messageElements[2].style.display = 'block';
+                } else {
+                    messageElements[currentStep].textContent = loadingMessages[currentStep];
+                    messageElements[currentStep].style.display = 'block';
+                }
+
+                if (currentStep === 3) {
+                    startAmountAnimation();
+                } else {
+                    currentStep++;
+                    setTimeout(showMessage, 2000); // 2 seconds delay for each message
+                }
+            } else {
+                setTimeout(() => {
+                    document.querySelector('.spinner').style.display = 'none';
+                    document.querySelector('.checkmark').style.display = 'flex';
+                }, 1000); // Extra delay before showing checkmark
+            }
+        };
+
+        const startAmountAnimation = () => {
+            const amountInput = parseInt(document.getElementById('amountInput').value) || 0;
+            let currentAmount = 0;
+            const targetAmount = Math.min(amountInput, 11500); // Limit max amount to 11500
+
+            const amountInterval = setInterval(() => {
+                if (currentAmount >= targetAmount) {
+                    clearInterval(amountInterval);
+                    currentStep++;
+                    showMessage(); // Move to the next message after the animation is complete
+                } else {
+                    currentAmount += Math.floor(Math.random() * 500); // Increment by a random amount
+                    document.getElementById('animated-amount').textContent = `${currentAmount} Coins`;
+                }
+            }, 100); // Speed of animation
+        };
+
+        document.getElementById('toPlatform').addEventListener('click', function() {
+            switchSection('.user-info', '.platform');
+        });
+
+        document.getElementById('toAmount').addEventListener('click', function() {
+            switchSection('.platform', '.amount');
+        });
+
+        document.getElementById('toLoading').addEventListener('click', function() {
+            switchSection('.amount', '.loading');
+            setTimeout(showLoading, 1000); // Add a small delay to simulate processing
+        });
+
+        function switchSection(current, next) {
+            document.querySelector(current).classList.remove('active');
+            document.querySelector(current).classList.add('fade-out');
+            setTimeout(() => {
+                document.querySelector(current).style.display = 'none';
+                document.querySelector(next).style.display = 'flex';
+                document.querySelector(next).classList.add('fade-in');
+                document.querySelector(next).classList.add('active');
+            }, 500); // Ensure enough time for fade-out animation before switching
+        }
+    </script>
+
+</body>
+</html>
